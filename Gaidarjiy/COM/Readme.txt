@@ -1,0 +1,1 @@
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe D:\Univer\Gaidarjiy\COM\COM.Chat.Server\COM.Chat.Server\bin\Debug\COM.Chat.Server.dll

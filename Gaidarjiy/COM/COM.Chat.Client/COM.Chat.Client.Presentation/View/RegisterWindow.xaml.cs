@@ -1,6 +1,5 @@
 ﻿using COM.Chat.Client.Presentation.Services;
 using COM.Chat.Client.Presentation.Services.Abstract;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace COM.Chat.Client.Presentation.View
