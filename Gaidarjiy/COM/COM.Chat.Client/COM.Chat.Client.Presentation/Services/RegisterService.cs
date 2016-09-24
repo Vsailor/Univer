@@ -2,6 +2,7 @@
 using COM.Chat.Client.Services;
 using COM.Chat.Client.Services.Abstract;
 using System.Threading.Tasks;
+using COM.Chat.Client.Models;
 
 namespace COM.Chat.Client.Presentation.Services
 {
@@ -12,6 +13,11 @@ namespace COM.Chat.Client.Presentation.Services
         public RegisterService()
         {
             _userService = new UserService();
+        }
+
+        public async Task<User> GetUserByLogin(string login)
+        {
+            return await _userService.GetUserByLogin(login);
         }
 
         public async Task RegisterUser(string login, string password)

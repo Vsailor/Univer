@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:COM.Chat.Client.Presentation.View"
         mc:Ignorable="d"
-        Title="COM Chat" MinHeight="300" MinWidth="400" Width="400" Height="300">
+        Title="COM Chat" MinHeight="300" MinWidth="400" Width="400" Height="300" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
