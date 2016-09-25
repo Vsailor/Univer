@@ -17,7 +17,8 @@ namespace COM.Chat.Client.Presentation.View
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var loginWindow = new LoginWindow(this);
+            loginWindow.Show();
         }
     }
 }

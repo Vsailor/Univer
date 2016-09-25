@@ -4,6 +4,8 @@ using COM.Chat.Client.Models;
 using COM.Chat.Client.Services.Abstract;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
 
 namespace COM.Chat.Client.Services
 {
@@ -25,6 +27,11 @@ namespace COM.Chat.Client.Services
         {
             var users =  _userRepository.GetUserByLogin(login, 0);
             return users.FirstOrDefault();
+        }
+
+        public List<string> GetUsersLogins()
+        {
+            return _userRepository.GetUsersLogins();
         }
     }
 }

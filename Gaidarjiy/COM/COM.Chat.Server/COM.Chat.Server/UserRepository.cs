@@ -65,5 +65,38 @@ namespace COM.Chat.Server
                 return writer.ToString();
             }
         }
+
+        public object GetUsersLogins(string connectionString)
+        {
+            var command = new SqlCommand();
+            command.CommandText = CommandService.CommandDictionary[SqlCommands.GetUsersLogins];
+
+            SqlDataReader reader;
+            var users = new List<string>();
+
+            using (var conn = new SqlConnection(connectionString))
+            {
+                command.Connection = conn;
+                conn.Open();
+                reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        users.Add(reader.GetString(0));
+                    }
+                }
+
+                reader.Close();
+            }
+
+            XmlSerializer serializer = new XmlSerializer(typeof(List<string>));
+            using (var writer = new StringWriter())
+            {
+                serializer.Serialize(writer, users);
+                return writer.ToString();
+            }
+        }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using COM.Chat.Client.Models;
 using COM.Chat.Client.Presentation.Services;
 using COM.Chat.Client.Presentation.Services.Abstract;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -9,10 +8,10 @@ namespace COM.Chat.Client.Presentation.View
 {
     public partial class RegisterWindow : Window
     {
-        private IRegisterService _registerService;
+        private IUserPresentationService _userPresentationService;
         public RegisterWindow()
         {
-            _registerService = new RegisterService();
+            _userPresentationService = new UserPresentationService();
             InitializeComponent();
         }
 
@@ -30,26 +29,30 @@ namespace COM.Chat.Client.Presentation.View
                 return;
             }
 
-            await RegisterUserAsync(PasswordField.Text, PasswordField.Text);
+            await RegisterUserAsync(LoginField.Text, PasswordField.Text);
         }
 
         private async Task RegisterUserAsync(string login, string password)
         {
-            await Task.Run(() =>
+            var registered = await Task.Run(() =>
             {
-                User user = _registerService.GetUserByLogin(login);
+                User user = _userPresentationService.GetUserByLogin(login);
                 if (user != null)
                 {
                     MessageBox.Show("This user is already exists", "Declined", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
+                    return false;
                 }
 
-                _registerService.RegisterUser(login, password);
+                _userPresentationService.RegisterUser(login, password);
 
                 MessageBox.Show("User was registered successful", "Done", MessageBoxButton.OK, MessageBoxImage.Information);
+                return true;
             });
 
-            Close();
+            if (registered)
+            {
+                Close();
+            }
         }
     }
 }

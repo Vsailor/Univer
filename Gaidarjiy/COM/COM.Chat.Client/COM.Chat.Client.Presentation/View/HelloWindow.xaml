@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:COM.Chat.Client.Presentation.View"
         mc:Ignorable="d"
-        Title="COM Chat" MinHeight="300" MinWidth="400" Width="400" Height="300" WindowStartupLocation="CenterScreen">
+        Title="COM Chat" MinHeight="150" MinWidth="400" Width="400" Height="150" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Name="RegisterButton" Content="Register" Margin="50,50,50,50" MinWidth="200" MinHeight="30" Click="RegisterButton_Click"/>
-        <Button Grid.Row="1" Name="LoginButton" Content="Login" Margin="50,50,50,50" MinWidth="200" MinHeight="30" Click="LoginButton_Click"/>
+        <Button Grid.Row="0" Name="RegisterButton" Content="Register" Margin="50,10,50,10" MinWidth="200" MinHeight="30" Click="RegisterButton_Click"/>
+        <Button Grid.Row="1" Name="LoginButton" Content="Sign in" Margin="50,10,50,10" MinWidth="200" MinHeight="30" Click="LoginButton_Click"/>
     </Grid>
 </Window>

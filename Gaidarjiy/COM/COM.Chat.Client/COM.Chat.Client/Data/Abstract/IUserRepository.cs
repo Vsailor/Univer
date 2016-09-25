@@ -8,5 +8,6 @@ namespace COM.Chat.Client.Data.Abstract
     {
         Task RegisterUser(string login, string password, byte isDeleted);
         List<User> GetUserByLogin(string login, byte isDeleted);
+        List<string> GetUsersLogins();
     }
 }
