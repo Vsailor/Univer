@@ -1,6 +1,8 @@
 ﻿using COM.Chat.Client.Models;
 using COM.Chat.Client.Presentation.Services;
 using COM.Chat.Client.Presentation.Services.Abstract;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace COM.Chat.Client.Presentation.View
@@ -28,15 +30,25 @@ namespace COM.Chat.Client.Presentation.View
                 return;
             }
 
-            User user = await _registerService.GetUserByLogin(LoginField.Text);
-            if (user != null)
-            {
-                MessageBox.Show("This user is already exists", "Declined", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
+            await RegisterUserAsync(PasswordField.Text, PasswordField.Text);
+        }
 
-            await _registerService.RegisterUser(LoginField.Text, PasswordField.Text);
-            MessageBox.Show("User was registered successful", "Done", MessageBoxButton.OK, MessageBoxImage.Information);
+        private async Task RegisterUserAsync(string login, string password)
+        {
+            await Task.Run(() =>
+            {
+                User user = _registerService.GetUserByLogin(login);
+                if (user != null)
+                {
+                    MessageBox.Show("This user is already exists", "Declined", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                _registerService.RegisterUser(login, password);
+
+                MessageBox.Show("User was registered successful", "Done", MessageBoxButton.OK, MessageBoxImage.Information);
+            });
+
             Close();
         }
     }

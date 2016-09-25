@@ -21,10 +21,10 @@ namespace COM.Chat.Client.Services
             await _userRepository.RegisterUser(login, password, 0);
         }
 
-        public Task<User> GetUserByLogin(string login)
+        public User GetUserByLogin(string login)
         {
-            var users = _userRepository.GetUserByLogin(login, 0);
-            return Task.Run(() => users.FirstOrDefault());
+            var users =  _userRepository.GetUserByLogin(login, 0);
+            return users.FirstOrDefault();
         }
     }
 }

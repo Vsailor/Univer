@@ -15,9 +15,9 @@ namespace COM.Chat.Client.Presentation.Services
             _userService = new UserService();
         }
 
-        public async Task<User> GetUserByLogin(string login)
+        public User GetUserByLogin(string login)
         {
-            return await _userService.GetUserByLogin(login);
+            return _userService.GetUserByLogin(login);
         }
 
         public async Task RegisterUser(string login, string password)

@@ -6,6 +6,6 @@ namespace COM.Chat.Client.Services.Abstract
     public interface IUserService
     {
         Task RegisterUser(string login, string password);
-        Task<User> GetUserByLogin(string login);
+        User GetUserByLogin(string login);
     }
 }
