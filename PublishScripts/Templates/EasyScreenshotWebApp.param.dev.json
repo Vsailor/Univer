@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "EasyScreenshot"
+  },
+  "hostingPlanName": {
+    "value": "ServicePlanbaf7b725-b61d"
+  },
+  "siteLocation": {
+    "value": "South Central US"
+  },
+  "sku": {
+    "value": "Standard"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "76f645f9-daa5-4dd4-9682-70d41eec48e9"
+  },
+  "resourceGroup": {
+    "value": "FirstResourceGroup"
+  }
+}
