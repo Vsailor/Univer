@@ -22,7 +22,7 @@ namespace EasyScreenshot.WebApp.View.Controllers
 
         [HttpGet]
         [Route("create/{fromId}/{toId}/{url}")]
-        public async Task<HttpStatusCode> Get(int fromId, int toId, string url)
+        public HttpStatusCode Get(int fromId, int toId, string url)
         {
             var connection = new ConnectionVM
             {
@@ -31,14 +31,14 @@ namespace EasyScreenshot.WebApp.View.Controllers
                 URL = url
             };
 
-            return await _connectionService.CreateConnection(connection);
+            return _connectionService.CreateConnection(connection);
         }
 
         [HttpGet]
         [Route("register")]
-        public async Task<int> Register()
+        public int Register()
         {
-            return await _connectionService.RegisterUser();
+            return _connectionService.RegisterUser();
         }
 
         [HttpGet]
