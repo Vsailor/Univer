@@ -1,0 +1,76 @@
+﻿<Window x:Class="EasyScreenshot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyScreenshot"
+        Icon="ScreenshotIcon.ico"
+        mc:Ignorable="d"
+        Title="EasyScreenshot 1.2" Height="210.235" Width="425.496" ResizeMode="CanMinimize" StateChanged="Window_StateChanged">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Name="Hotkeys" Text="Hotkeys:" FontSize="14" HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <!--<RowDefinition Height="auto"/>-->
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Padding="0,0,5,0" Name="CreateAndUpload" Grid.Column="0" Grid.Row="0" Text="Create and upload:"></TextBlock>
+            <TextBlock Padding="0,0,5,0" Name="CreateAndSave" Grid.Column="0" Grid.Row="1" Text="Create and save:"></TextBlock>
+            <!--<TextBlock Padding="0,0,5,0" Name="CreateAndUseSnippingTool" Grid.Column="0" Grid.Row="2" Text="Create and use snipping tool:"></TextBlock>-->
+            <TextBlock Padding="0,0,5,0" Name="PathForScreenshots" Grid.Column="0" Grid.Row="3" Text="Path for screenshots:"></TextBlock>
+            <TextBox Name="CreateAndUploadHotkey" IsReadOnly="True" Grid.Column="1" Grid.Row="0" PreviewKeyDown="PreviewKeyDown"/>
+            <TextBox Name="CreateAndSaveHotkey" IsReadOnly="True" Grid.Column="1" Grid.Row="1" PreviewKeyDown="PreviewKeyDown"></TextBox>
+            <!--<TextBox Name="CreateAndUseSnippingToolHotkey" IsReadOnly="True" Grid.Column="1" PreviewKeyDown="PreviewKeyDown" Grid.Row="2"></TextBox>-->
+            <TextBox Name="PathForScreenshotsTextBox" IsReadOnly="True" Grid.Column="1" Grid.Row="3" GotFocus="PathForScreenshotsTextBox_GotFocus"/>
+            <Button Name="CreateAndUploadClear" Grid.Column="2" Grid.Row="0" Width="20" Height="21" VerticalAlignment="Top" Click="CreateAndUploadClear_Click" Background="White">✖</Button>
+            <Button Name="CreateAndSaveClear" Grid.Column="2" Grid.Row="1" Width="20" Click="CreateAndSaveClear_Click" Background="White">✖</Button>
+            <!--<Button Name="CreateAndUseSnippingToolClear" Grid.Column="2" Grid.Row="2" Width="20" Click="CreateAndUseSnippingToolClear_Click" Background="White">✖</Button>-->
+        </Grid>
+        <Grid Grid.Row="2" Margin="5,0,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Name="LanguageTextBox" Padding="0,0,50,0" Grid.Column="0" Text="Language:"></TextBlock>
+            <ComboBox Name="LanguageCombobox" Grid.Column="1"></ComboBox>
+        </Grid>
+        <Grid Grid.Row="3" Margin="5,0,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Name="FormatTextBox" Padding="0,0,50,0" Grid.Column="0" Text="Format:"></TextBlock>
+            <Grid Name="FormatCombobox" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton Name="PngRB" Grid.Column="0" Checked="ImageFormatRadioButtonChecked">.png</RadioButton>
+                <RadioButton Name="JpegRB" Grid.Column="1" Checked="ImageFormatRadioButtonChecked">.jpeg</RadioButton>
+                <RadioButton Name="BmpRB" Grid.Column="2" Checked="ImageFormatRadioButtonChecked">.bmp</RadioButton>
+                <RadioButton Name="GifRB" Grid.Column="3" Checked="ImageFormatRadioButtonChecked">.gif</RadioButton>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Button Name="SaveButton" Margin="50,0,50,0" Content="Save" Click="SaveButton_Click"></Button>
+        </Grid>
+    </Grid>
+</Window>
